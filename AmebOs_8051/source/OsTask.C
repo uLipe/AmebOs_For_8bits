@@ -81,7 +81,7 @@ OsStatus_t OsTaskCreate(void (*task)(), OsStack_t *stk, uint16_t stkSize, uint8_
 	tcbList[osPrio].taskState = (1 << kOsTaskRdy); //sempre começa com o taskredy
 
 	//Inicializa restante do TCB:
-	tcbList[osPrio].topOfStack = OsStackInit((stk + stkSize), task, taskArgs);
+	tcbList[osPrio].topOfStack = OsStackInit(stk, task, taskArgs);
 
 	//
 	tcbPtrTbl[osPrio] = &tcbList[osPrio];
